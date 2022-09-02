@@ -2,12 +2,12 @@
 	<div class="grid">
 		<div class="col-12">
 			<div class="card">
-				<h5>DataView</h5>
+				<h5>Listado</h5>
 				<DataView :value="dataviewValue" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder" :sortField="sortField">
 					<template #header>
 						<div class="grid grid-nogutter">
 							<div class="col-6 text-left">
-								<Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)"/>
+								<Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Organizar por precio" @change="onSortChange($event)"/>
 							</div>
 							<div class="col-6 text-right">
 								<DataViewLayoutOptions v-model="layout" />
@@ -63,37 +63,6 @@
 				</DataView>
 			</div>
 		</div>
-
-		<div class="col-12 lg:col-8">
-			<div class="card">
-				<h5>PickList</h5>
-				<PickList v-model="picklistValue" listStyle="height:250px" dataKey="code">
-					<template #sourceheader>
-						From
-					</template>
-					<template #targetheader>
-						To
-					</template>
-					<template #item="slotProps">
-						<div>{{slotProps.item.name}}</div>
-					</template>
-				</PickList>
-			</div>
-		</div>
-
-		<div class="col-12 lg:col-4">
-			<div class="card">
-				<h5>OrderList</h5>
-				<OrderList v-model="orderlistValue" listStyle="height:250px" dataKey="code" :rows="10">
-					<template #header>
-						Cities
-					</template>
-					<template #item="slotProps">
-						<div>{{slotProps.item.name}}</div>
-					</template>
-				</OrderList>
-			</div>
-		</div>
 	</div>
 </template>
 
@@ -103,32 +72,14 @@
 	export default {
 		data() {
 			return {
-				picklistValue: [[
-					{name: 'San Francisco', code: 'SF'},
-					{name: 'London', code: 'LDN'},
-					{name: 'Paris', code: 'PRS'},
-					{name: 'Istanbul', code: 'IST'},
-					{name: 'Berlin', code: 'BRL'},
-					{name: 'Barcelona', code: 'BRC'},
-					{name: 'Rome', code: 'RM'},
-				],[]],
-				orderlistValue: [
-					{name: 'San Francisco', code: 'SF'},
-					{name: 'London', code: 'LDN'},
-					{name: 'Paris', code: 'PRS'},
-					{name: 'Istanbul', code: 'IST'},
-					{name: 'Berlin', code: 'BRL'},
-					{name: 'Barcelona', code: 'BRC'},
-					{name: 'Rome', code: 'RM'},
-				],
 				dataviewValue: null,
 				layout: 'grid',
 				sortKey: null,
 				sortOrder: null,
 				sortField: null,
 				sortOptions: [
-					{label: 'Price High to Low', value: '!price'},
-					{label: 'Price Low to High', value: 'price'},
+					{label: 'Precio mayor a menor', value: '!price'},
+					{label: 'Precio menor a mayor', value: 'price'},
 				]
 			}
 		},

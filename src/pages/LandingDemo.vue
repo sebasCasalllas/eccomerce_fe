@@ -2,7 +2,7 @@
     <div class="surface-0 overflow-hidden">
         <div class="py-4 px-4 mx-0 md:mx-6 lg:mx-8 lg:px-8 flex align-items-center justify-content-between relative lg:static">
             <router-link to="/" class="flex align-items-center">
-                <img src="layout/images/LogAgro.jpg" alt="Sakai Logo" height="50" class="mr-0 lg:mr-2"><span class="text-900 font-medium text-2xl line-height-3 mr-8">ECCOMERCE</span>
+                <img src="layout/images/LogAgro.jpg" alt="Sakai Logo" height="50" class="mr-0 lg:mr-2"><span class="text-900 font-medium text-2xl line-height-3 mr-8">MARKETAGRO</span>
             </router-link>
             <a class="cursor-pointer block lg:hidden text-700 p-ripple" v-ripple
                 v-styleclass="{ selector: '@next', enterClass: 'hidden', leaveToClass: 'hidden', hideOnOutsideClick: true }">
@@ -10,17 +10,20 @@
             </a>
             <div class="surface-0 align-items-center flex-end-1 justify-content-end hidden lg:flex absolute lg:static w-full left-0 px-6 lg:px-30 z-2" style="top:92%">
                 <div class="flex justify-content-between lg:block border-top-1 lg:border-top-none surface-border py-3 lg:py-0 mt-3 lg:mt-0">
-                    <Button label="Inicio" class="p-button-text p-button-rounded border-none font-light line-height-2 text-blue-500"></Button>
-                    <Button label="Registrarse" class="p-button-rounded border-none ml-5 font-light text-white line-height-2 bg-blue-500"></Button>
+                    <Button label="Inicio" class="p-button-text p-button-rounded border-none font-light line-height-2 text-blue-500"
+                        v-on:click="loadHome"></Button>
+                    <Button label="Registrarse" class="p-button-rounded border-none ml-5 font-light text-white line-height-2 bg-blue-500"
+                    v-on:click="loadRegister"></Button>
                 </div>
             </div>
         </div>
 
         <div class="grid py-4 px-4 lg:px-8 relative" id="hero">
             <div class="mx-4 md:mx-8 mt-0 md:mt-4">
-                <h1 class="text-6xl font-bold text-gray-900 line-height-2"><span class="font-light block">Bienvenido a ECCOMERCE</span>Tienda virtual de productos del Agro</h1>
-                <p class="font-normal text-2xl line-height-3 md:mt-3 text-gray-700">En esta tienda virtual encontra difernetes productos del Agro, como lo son fumigadoras, fertilizantes herramientas ... </p>
+                <h1 class="text-6xl font-bold text-gray-900 line-height-2"><span class="font-light block">Bienvenido a MARTEKAGRO</span>Tienda virtual de productos para el Agro</h1>
+                <p class="font-normal text-2xl line-height-3 md:mt-3 text-gray-700">En esta tienda virtual encontra diferentes productos del Agro, como lo son fumigadoras, fertilizantes, herramientas, entre otros ... </p>
                 <Button label="Ingresa" class="p-button-rounded text-xl border-none mt-5 bg-blue-500 font-normal text-white line-height-3 px-3"></Button>
+                
             </div>
             <img src="layout/images/ladingFondo.jpg" class="bottom-0" height="350" alt="hero screen" style="right:10%; opacity: 0.8;">
         </div>
@@ -35,7 +38,13 @@ export default {
             document.querySelector(id).scrollIntoView({
                 behavior: 'smooth'
             });
-        }
+        },
+        loadHome: function() {
+            this.$router.push({ name: "login" });
+        },
+        loadRegister: function() {
+            this.$router.push({ name: "Registro" });
+        },
     },
     computed: {
         logoColor() {
@@ -43,6 +52,8 @@ export default {
             return 'dark';
         }
     }
+
+
 }
 </script>
 

@@ -147,6 +147,11 @@ const routes = [
         component: () => import('./pages/Login.vue')
     },
     {
+        path: '/Registro',
+        name: 'Registro',
+        component: () => import('./pages/Registro.vue')
+    },
+    {
         path: '/landing',
         name: 'landing',
         component: () => import('./pages/LandingDemo.vue')
