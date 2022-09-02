@@ -30,7 +30,6 @@
                         <InputNumber id="edad1" v-model="edad" type="text" showButtons  mode="decimal" class="w-full mb-3" placeholder="" style="padding:1rem;" />
 
                         <label for="email1" class="block text-900 text-xl font-medium mb-2">rol</label>
-
                         <Dropdown id="email1" v-model="dropdownValue" :options="dropdownValues" optionLabel="name" placeholder="Select"  style="padding:1rem;" />
                         
 				
@@ -57,7 +56,8 @@ export default {
 					{name: 'Admin', code: 'AD'},
 					{name: 'Proveedor', code: 'PR'},
 					{name: 'Usuario', code: 'US'}
-				]
+				],
+            dropdownValue: null,
         }
     },
     computed: {
